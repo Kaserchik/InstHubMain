@@ -10,5 +10,4 @@
 
 Конференции на будущее
 
-Работоспособность:
-<video src='https://youtu.be/JTpkRHVjarQ' width=180/>
+[![Работоспособность](https://i.ytimg.com/vi/JTpkRHVjarQ/hqdefault.jpg)](https://youtu.be/JTpkRHVjarQ)
