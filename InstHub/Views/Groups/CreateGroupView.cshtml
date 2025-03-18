@@ -1,0 +1,30 @@
+﻿@using InstHub.Data.Identity
+@using Microsoft.AspNetCore.Identity
+@model InstHub.Models.Group
+@inject SignInManager<AppIdentityUser> SignInManager
+@inject UserManager<AppIdentityUser> UserManager
+@{
+    ViewData["Title"] = "Создание группы";
+    var user = await UserManager.GetUserAsync(User);
+    var userEmail = user?.Email;
+}
+
+<div class="groups_div">
+    <form asp-action="Create">
+        <div class="groupname">
+            <p>
+                Наименование группы
+            </p>
+            <input asp-for="GroupName" style="border-radius:20px; margin-left:20px" />
+            <span asp-validation-for="GroupName" class="text-danger"></span>
+        </div>
+        <input type="hidden" asp-for="Email" value="@userEmail" />
+        <input type="submit" style="border-radius:20px; margin-top:20px" value="Создать группу"/>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

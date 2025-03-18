@@ -1,0 +1,342 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.file_ico_class {
+    width: 150px;
+    height: 150px;
+}
+.dw_dl_file_ico_class {
+    width:30px;
+    height:30px;
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.files_div {
+    height: auto;
+    width: auto;
+}
+
+.groups_div {
+    height: auto;
+    width: auto;
+}
+
+.bg_file_add {
+    width: 200px;
+    height: 200px;
+    background-color: rgb(217,217,217);
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 35px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.bg_file {
+    width: 200px;
+    height: 200px;
+    background-color: rgb(217,217,217);
+    margin-right: 10px;
+    border-radius: 35px;
+    color: black;
+}
+.bg_file:hover {
+    color: black;
+}
+
+.el_line {
+    display: flex;
+    height: auto;
+    width: auto;
+    margin-bottom: 100px;
+}
+
+.a_bt_add {
+    color: black;
+}
+
+.a_bt_add:hover {
+    color: black;
+}
+
+.file_actions {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+}
+
+.file_action {
+    margin-bottom: 20px; 
+}
+
+.leftpanel {
+    display: flex;
+    flex-direction: column;
+}
+
+.groups_div {
+    display: flex;
+    flex-direction: column;
+}
+
+.groupname {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.rightpanel {
+    display: flex;
+    flex-direction: column;
+}
+.groups_elements {
+    display: flex;
+    flex-direction: row;
+}
+
+.conference_main {
+    left:40px;
+    right:40px;
+    height:760px;
+    position:absolute;
+    display: flex;
+    flex-direction: row;
+}
+
+.conference_video {
+    position: relative;
+    background-color: rgba(158, 158, 158, 1);
+    width: 1500px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-color:black;
+    border-width:2px;
+    border-style:solid;
+}
+
+.conference_caption {
+    margin-top: 10px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.conference_chat {
+    position: relative;
+    width: 300px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat_caption {
+    margin-top: 10px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.chat_history {
+    flex: 1; /* Занимает все доступное пространство */
+    padding: 10px; /* Отступы внутри */
+    overflow-y: auto; /* Скроллинг при переполнении */
+}
+
+.chat_input {
+    position: absolute;
+    bottom: 10px; /* Отступ снизу */
+    left: 10px; /* Отступ слева */
+    right: 10px; /* Отступ справа */
+}
+
+.chat_input input {
+    border-radius:15px;
+    width: calc(100% - 20px); /* Ширина с учётом отступов */
+    padding: 5px; /* Внутренние отступы */
+}
+
+.main_video_section {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрирование по вертикали */
+    align-items: center; /* Центрирование по горизонтали */
+}
+
+.video_section {
+    display: flex;
+    justify-content: center; /* Центрирование содержимого по горизонтали */
+    align-items: center; /* Центрирование содержимого по вертикали */
+}
+
+.under_video_section {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px; /* Примерная высота, измените по необходимости */
+    background-color: rgba(226, 226, 226, 1); /* Примерный стиль, можно удалить */
+    border-bottom-left-radius: 15px;
+    border-top-color: black;
+    border-top-width: 2px;
+    border-top-style: solid;
+    display: flex;
+    justify-content: center; /* Центрирование содержимого по горизонтали */
+    align-items: center; /* Центрирование содержимого по вертикали */
+    gap: 10px; /* Расстояние между кнопками */
+}
+
+.icon_button {
+    background: none;
+    border: none;
+    cursor: not-allowed; /* Неактивное состояние */
+    padding: 0;
+}
+
+.icon_button img {
+    width: 24px; /* Примерный размер иконок */
+    height: 24px;
+}
+
+@media (max-width: 1399px) {
+    .bg_file_add {
+        width: 170px;
+        height: 170px;
+        margin-right: 90px;
+    }
+    .bg_file {
+        width: 170px;
+        height: 170px;
+        margin-bottom: 10px;
+    }
+    .file_ico_class {
+        width: 100px;
+        height: 100px;
+    }
+
+    .dw_dl_file_ico_class {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .bg_file_add {
+        width: 135px;
+        height: 135px;
+        margin-right: 90px;
+    }
+
+    .bg_file {
+        width: 135px;
+        height: 135px;
+        margin-bottom: 10px;
+    }
+
+    .file_ico_class {
+        width: 100px;
+        height: 100px;
+    }
+
+    .dw_dl_file_ico_class {
+        width: 30px;
+        height: 30px;
+    }
+    .el_line {
+        display: flex;
+        height: auto;
+        width: auto;
+        margin-bottom: 110px;
+    }
+}
+
+@media (max-width: 991px) {
+    .bg_file_add {
+        width: 90px;
+        height: 90px;
+        margin-right: 90px;
+    }
+
+    .bg_file {
+        width: 90px;
+        height: 90px;
+        margin-bottom: 10px;
+    }
+
+    .file_ico_class {
+        width: 50px;
+        height: 50px;
+    }
+
+    .dw_dl_file_ico_class {
+        width: 30px;
+        height: 30px;
+    }
+
+    .el_line {
+        display: flex;
+        height: auto;
+        width: auto;
+        margin-bottom: 140px;
+    }
+}
+
+@media (max-width: 767px) {
+    .bg_file_add {
+        width: 65px;
+        height: 65px;
+        margin-right: 90px;
+    }
+
+    .bg_file {
+        width: 65px;
+        height: 65px;
+        margin-bottom: 10px;
+    }
+
+    .file_ico_class {
+        width: 30px;
+        height: 30px;
+    }
+
+    .dw_dl_file_ico_class {
+        width: 18px;
+        height: 18px;
+    }
+    .file_action {
+        margin-bottom: 10px;
+    }
+    .el_line {
+        display: flex;
+        height: auto;
+        width: auto;
+        margin-bottom: 120px;
+    }
+}

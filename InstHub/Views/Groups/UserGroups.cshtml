@@ -1,0 +1,22 @@
+﻿@using InstHub.Data.Identity
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<AppIdentityUser> SignInManager
+@inject UserManager<AppIdentityUser> UserManager
+@{
+    ViewData["Title"] = "Группы";
+}
+
+<div class="">
+    <h3>Группы пользователя @User.Identity?.Name!</h3>
+
+    <div class="groups_div">
+        <div class="el_line">
+            <a asp-controller="Groups" asp-action="CreateGroupView" class="a_bt_add">
+                <div class="bg_file_add">
+                    <img src="/images/files/add_file.png" class="file_ico_class" />
+                </div>
+                <p>Создать группу</p>
+            </a>
+        </div>
+    </div>
+</div>

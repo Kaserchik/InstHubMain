@@ -1,0 +1,22 @@
+﻿@using InstHub.Data.Identity
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<AppIdentityUser> SignInManager
+@inject UserManager<AppIdentityUser> UserManager
+@{
+    ViewData["Title"] = "Конференции";
+}
+
+<div class="">
+    <h3>Конференции пользователя @User.Identity?.Name!</h3>
+
+    <div class="confs_div">
+        <div class="el_line">
+            <a asp-controller="Conferences" asp-action="UserConference" class="a_bt_add">
+                <div class="bg_file_add">
+                    <img src="/images/conference_ico.png" class="file_ico_class" />
+                </div>
+                <p>Совещание 21.06</p>
+            </a>
+        </div>
+    </div>
+</div>

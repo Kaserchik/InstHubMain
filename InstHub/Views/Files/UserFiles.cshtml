@@ -1,0 +1,131 @@
+﻿@using InstHub.Data.Identity
+@using Microsoft.AspNetCore.Identity
+@model InstHub.Controllers.FilesController.UserFilesViewModel
+@inject SignInManager<AppIdentityUser> SignInManager
+@inject UserManager<AppIdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Файлы";
+}
+
+<div class="">
+    <h3>Файлы пользователя @User.Identity?.Name!</h3>
+
+    <div class="files_div">
+        @{
+            int fileCount = 0;
+        }
+        <div class="el_line">
+            @foreach (var file in Model.Files)
+            {
+                string iconPath;
+                string openPath;
+                switch (file.Extension)
+                {
+                    case ".pdf":
+                        iconPath = "/images/files/pdf_icon.png";
+                        openPath = "";
+                        break;
+                    case ".vsdx":
+                        iconPath = "/images/files/vsdx_icon.png";
+                        openPath = "";
+                        break;
+                    case ".pptx":
+                        iconPath = "/images/files/pptx_icon.png";
+                        openPath = "";
+                        break;
+                    case ".wav":
+                    case ".midi":
+                    case ".mp3":
+                        iconPath = "/images/files/mp3.png";
+                        openPath = "";
+                        break;
+                    case ".rar":
+                    case ".zip":
+                    case ".7z":
+                        iconPath = "/images/files/zip.png";
+                        openPath = "";
+                        break;
+                    case ".avi":
+                    case ".mp4":
+                    case ".mpg":
+                        iconPath = "/images/files/mp4.png";
+                        openPath = $"~/usersfiles/{UserManager.GetUserId(@User)}/{file.FileName}";
+                        break;
+                    case ".jpg":
+                    case ".jpeg":
+                    case ".png":
+                    case ".gif":
+                        iconPath = @Url.Content($"~/usersfiles/{UserManager.GetUserId(@User)}/{file.FileName}");
+                        openPath = $"~/usersfiles/{UserManager.GetUserId(@User)}/{file.FileName}";
+                        break;
+                    case ".xls":
+                    case ".xlsx":
+                        iconPath = "/images/files/excel_icon.png";
+                        openPath = "";
+                        break;
+                    case ".txt":
+                    case ".docx":
+                    case ".doc":
+                        iconPath = "/images/files/docx.png";
+                        openPath = "";
+                        break;
+                    default:
+                        iconPath = "/images/files/default_icon.png";
+                        openPath = "";
+                        break;
+                }
+
+                <a href="@Url.Content(@openPath)" class="bg_file">
+                    <div class="bg_file_add">
+                        <img src="@iconPath" class="file_ico_class"/>
+                    </div>
+                    <p>@file.FileName</p>
+                </a>
+                <div class="file_actions">
+                    <a asp-controller="Files" asp-action="Download" asp-route-fileName="@file.FileName" class="file_action" title="Загрузить">
+                        <img src="/images/files/download_icon.png" class="dw_dl_file_ico_class" />
+                    </a>
+                    <a asp-controller="Files" asp-action="Delete" asp-route-fileName="@file.FileName" class="file_action" title="Удалить">
+                        <img src="/images/files/delete_icon.png" class="dw_dl_file_ico_class"/>
+                    </a>
+                </div>
+
+                fileCount++;
+
+                if (fileCount % 5 == 0 && fileCount != 0)
+                {
+                    @Html.Raw("</div><div class=\"el_line\">") <!-- Закрываем текущий и открываем новый el_line -->
+                }
+            }
+
+            <form id="uploadFileForm" enctype="multipart/form-data" method="post" asp-controller="Files" asp-action="CheckAndCreateUserFolder">
+                @Html.AntiForgeryToken()
+                <input type="file" name="file" id="fileInput" style="display:none;" />
+                <a href="#" class="a_bt_add" onclick="document.getElementById('fileInput').click(); return false;">
+                    <div class="bg_file_add">
+                        <img src="/images/files/add_file.png" class="file_ico_class"/>
+                    </div>
+                    <p>Добавить файл</p>
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
+
+@if (TempData["StatusMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["StatusMessage"]
+    </div>
+}
+
+@section Scripts {
+    <script>
+        document.getElementById('fileInput').addEventListener('change', function () {
+            if (this.files && this.files.length > 0) {
+                document.getElementById('uploadFileForm').submit();
+            }
+        });
+    </script>
+}
