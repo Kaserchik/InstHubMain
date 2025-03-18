@@ -11,4 +11,4 @@
 Конференции на будущее
 
 Работоспособность:
-https://youtu.be/JTpkRHVjarQ
+<video src='https://youtu.be/JTpkRHVjarQ' width=180/>
